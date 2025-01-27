@@ -1,3 +1,4 @@
+import java.util.Arrays;//Pakage
 public class Datatypes
 {
     public static void main(String[] args)
@@ -46,5 +47,19 @@ public class Datatypes
         char charExample1=97;
         System.out.println(charExample);
         System.out.println(charExample1);
+
+        //Non-primitive data type:These datatypes refer's to objets or arrays.
+        //1.)String:Sequence of characters.
+        String collageName="Nepathya collage";
+        System.out.println(collageName);
+
+        //2.)Array:Collection of elements with same data type
+        int[] arrayOfNumbers={1,2,3,4,5};
+       // System.out.println(arrayOfNumbers);
+        System.out.println(Arrays.toString(arrayOfNumbers));
+
+        //3.) Class:Instance of an object
+
+        //4.) Enum:Constant values in object(e.g dropdown in Gender field)
     }
 }
