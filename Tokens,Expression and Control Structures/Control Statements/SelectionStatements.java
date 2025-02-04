@@ -1,7 +1,7 @@
 public class SelectionStatements {
     public static void main(String[] args) {
         //1.if Statement:
-        int age=19;
+        int age=20;
         if(age>=18)
         {
             System.out.println("You can vote");
@@ -24,6 +24,25 @@ public class SelectionStatements {
         else
         {
             System.out.println("c is the largest number: "+c);
+        }
+
+        //wap to check the number is positive,negative or zero.
+        int num=3;
+        if(num>0)
+        {
+            System.out.println("The number is positive.");
+        }
+        else if(num<0)
+        {
+            System.out.println("The number is negative.");
+        }
+        else if(num==0)
+        {
+            System.out.println("The number is zero.");
+        }
+        else
+        {
+            System.out.println("Invalid!!.");
         }
 
         //3.)Switch statement:
@@ -63,5 +82,36 @@ public class SelectionStatements {
             dayString="Invalid day";
         }
         System.out.println(dayString);
+        
+        //Switch case next example.
+        int sizeNumber=2;//Use number:1,2,3,4,5
+        switch (sizeNumber) {
+            case 1:
+                System.out.println("extra small.");
+                break;
+
+            case 2:
+                System.out.println("small");
+                break;
+
+            case 3:
+                System.out.println("medium");
+                break;
+
+            case 4:
+                System.out.println("large");
+                break;
+
+            case 5:
+                System.out.println("extra large");
+                break;
+        
+            default:
+            System.out.println("Invalid OPtion!!");
+        
+        }
     }
+    
+
+
 }
