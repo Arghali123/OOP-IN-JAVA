@@ -1,4 +1,4 @@
-package Homework;
+import java.util.Scanner;
 
 public class Control {
     public static void main(String[] args) {
@@ -54,6 +54,21 @@ public class Control {
         {
             System.out.println("The greatest is: "+z);
         }
-        
+
+       Scanner sc=new Scanner(System.in);
+
+       //word input
+       System.out.println("Enter a word: ");
+       String name=sc.nextLine();
+       //System.out.println();
+
+       //character input
+       System.out.println("Enter a character: ");
+       char gender=sc.next().charAt(0);
+       
+       System.out.println("Your word: "+name);
+       System.out.println("Your character: "+gender);
+       sc.close();
+       
     }
 }

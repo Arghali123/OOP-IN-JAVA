@@ -163,4 +163,7 @@ In Java,the break statement has three uses:
 - It can be used as "civilized" form of goto.
 
 ### Using continue
+Sometimes it is useful to force an early iteration of loop.That is,you might want to continue running the loop but stop processing the remainder of the code in its body for the particular iteration.This is ,in effect,a goto just pass the body of the loop,to the loop's end.The continue statement performs such an actiom. 
 
+### Return Statement
+The return statement is used to explicitly return from a method. That is, it causes program control to transfer back to the caller of the method.
