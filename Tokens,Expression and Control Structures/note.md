@@ -1,7 +1,7 @@
 # Tokens,Expressions and Control Structures[Unit 2]
 ## Primitive Data Types
 - Most basic data types available within the Java Language.
-- 8 primitive data types:boolean,byte,char,short,int,long,float and double.
+- 8 primitive data types:**boolean,byte,char,short,int,long,float and double**.
 - Serves only one purpose-containing pure,simple values of a kind.
 - Are defined into the system by default ,they come with a number of operations predefined.
 
@@ -31,6 +31,22 @@ User defined data types are those that user/programmer himself defines.for e.g:
 MyClass obj
 Here obj is a variable of data type MyClass and we call them reference variable as they can be used to store the
 reference to the object of that class.
+class MyClass {
+    void display() {
+        System.out.println("Hello from MyClass!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MyClass obj = new MyClass(); // obj is a reference variable pointing to an instance of MyClass
+        MyClass ref = obj; // ref is another reference variable pointing to the same object
+
+        obj.display(); // Calling method using obj
+        ref.display(); // Calling method using ref (which refers to the same object)
+    }
+}
+
 ```
 ## Type Conversion and Casting
 Conversion of one data type to another data type is called **type casting**.
@@ -167,3 +183,4 @@ Sometimes it is useful to force an early iteration of loop.That is,you might wan
 
 ### Return Statement
 The return statement is used to explicitly return from a method. That is, it causes program control to transfer back to the caller of the method.
+
