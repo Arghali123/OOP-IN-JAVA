@@ -246,3 +246,135 @@ class Horse extends Animal
     }
 }
 ```
+
+## Introducing Nested and Inner Classes
+It is possible to define a class within another class;such classes are known as nested classes.The scope of a nested class is bounded by the scope of its enclosing class.However,the enclosing class doesnot have access to the members of the nested class.
+```
+class Outer
+{
+    private String outerfiled="Outer class field";
+
+    //Nested class
+    class Inner
+    {
+        private String innerfield="Inner class field";
+        void display()
+        {   
+            //Inner class can access members of the outer class 
+            System.out.println("Accessing outer field: "+outerfiled);
+        }
+    }
+
+    void show()
+    {
+        //Outer class cannot directly access inner class members
+        Inner obj=new Inner();
+        obj.display();
+        // System.out.println(obj.innerField); // This would cause a compilation error
+    }
+
+    public static void main(String[] args) {
+        Outer myouter=new Outer();
+        myouter.show();
+    }
+}
+```
+
+There are 2 types of nested classes:static and non-static class.A static nested class is the one that has the static modifier applied.Because it is static,it must access the members of enclosing class throught an object,canont refers to the members of enclosing class directly.
+```
+class Outer
+{
+    private String outerfield="Outer Instance Field";
+    private static String staticOuterfield="Outer static field";
+
+    //Static nested class
+    static class StaticInner
+    {
+        void display()
+        {
+            //Cannot access non-static members directly
+             // System.out.println(outerField); // ❌ Compilation error
+
+             //Can access the static members of the outer class
+             System.out.println("Accessing staic outer field: "+staticOuterfield);
+        }
+
+        void displayWithOuterInstance(Outer outer)
+        {
+            //Accessing non-static member through the instace od Outer
+            System.out.println("Accessing outer instance field: "+outer.outerfield);
+        }
+    }
+
+    public static void main(String[] args) {
+        StaticInner inner=new StaticInner();
+        inner.display();
+
+        //Creating an instance of the outer class to access non-static members
+        Outer outer=new Outer();
+        inner.displayWithOuterInstance(outer);
+    }
+}
+```
+
+The most important type of nested class is the inner class.An inner class is non-static nested class which has access to all the variables and methods of its outer class and may refer to them directly.
+```
+ class Outer {
+
+    int outer_x=100;
+
+    void test()
+    {
+        Inner inner=new Inner();
+        inner.display();
+    }
+
+    //This is a inner class
+    class Inner
+    {
+      void display()
+      {
+        System.out.println("Display: outer_x: "+outer_x);
+      }
+    }
+
+    public static void main(String[] args) {
+        Outer outer=new Outer();
+        outer.test();
+    }
+}
+```
+
+## Static Keyword
+It is used to call the attributes or method without creating the objects.
+```
+public class StaticKeyword {
+ String employeename;
+ static String employeeCEO;
+ double employeesalary;
+
+ void display()
+ {
+    System.out.println("Employee name: "+employeename);
+    System.out.println("Employee CEO: "+employeeCEO);
+    System.out.println("Employe salary: "+employeesalary);
+ }
+
+ public static void main(String[] args) {
+    StaticKeyword obj1=new StaticKeyword();
+    StaticKeyword obj2=new StaticKeyword();
+
+    //Static data initialization
+    StaticKeyword.employeeCEO="Daenish";
+
+    obj1.employeename="Ayush";
+    obj1.employeesalary=12000;
+    obj1.display();
+
+    obj2.employeename="Ashik";
+    obj2.employeesalary=20000;
+    obj2.display();
+ }
+}
+```
+

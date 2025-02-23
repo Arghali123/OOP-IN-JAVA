@@ -7,7 +7,7 @@ public class Search {
        int n=array.length;
        boolean found=false;
        int index=-1;
-       for(int i=0;i<n;i++)
+       for(int i=0;i<n;i++)k
        {
         if(key==array[i])
         {
