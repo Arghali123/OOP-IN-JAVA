@@ -376,5 +376,23 @@ public class StaticKeyword {
     obj2.display();
  }
 }
-```
+```then
 
+### @override
+It is the condition where child class re-implement the method of parent class.
+
+
+class Arith..
+    addTwoDigit(int a, int b){}
+
+class add.. extends Arith..{
+
+}
+
+
+clss Main{
+    main(){
+        add a= new add();
+        a.addTwoDigit(4,6);
+    }
+}
