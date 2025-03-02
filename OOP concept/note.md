@@ -396,3 +396,17 @@ clss Main{
         a.addTwoDigit(4,6);
     }
 }
+```
+
+
+
+# Access modifiers in Java
+In Java,**Access modifiers** helps to restrict the **scope of class,constructor,variable,method or data members**.It provide's **security,accessibility** etc to the user depending opon the access modifier used in the element.In Java there are 4 types of access modifiers:
+- Default-no keyword required
+- Private
+- Protected
+- Public
+![Access Modifiers](photos/Access-Modifiers-in-Java-1.webp)
+
+## Private Access Modifiers
+The methods or data members declared as private are accessible **only within the class in which they are declared**.In term's of application to classes,**apply only to nested classes and not on top-level classes**.
