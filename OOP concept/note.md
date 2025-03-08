@@ -248,103 +248,12 @@ class Horse extends Animal
 ```
 
 ## Introducing Nested and Inner Classes
-It is possible to define a class within another class;such classes are known as nested classes.The scope of a nested class is bounded by the scope of its enclosing class.However,the enclosing class doesnot have access to the members of the nested class.
-```
-class Outer
-{
-    private String outerfiled="Outer class field";
+In Java,you can define a class within another class.Such class is known as nested class.There are 2 types of nested class you can create in Java.
+- Non-Static Nested Class(inner class).
+- Static Nested Class.
 
-    //Nested class
-    class Inner
-    {
-        private String innerfield="Inner class field";
-        void display()
-        {   
-            //Inner class can access members of the outer class 
-            System.out.println("Accessing outer field: "+outerfiled);
-        }
-    }
-
-    void show()
-    {
-        //Outer class cannot directly access inner class members
-        Inner obj=new Inner();
-        obj.display();
-        // System.out.println(obj.innerField); // This would cause a compilation error
-    }
-
-    public static void main(String[] args) {
-        Outer myouter=new Outer();
-        myouter.show();
-    }
-}
-```
-
-There are 2 types of nested classes:static and non-static class.A static nested class is the one that has the static modifier applied.Because it is static,it must access the members of enclosing class throught an object,canont refers to the members of enclosing class directly.
-```
-class Outer
-{
-    private String outerfield="Outer Instance Field";
-    private static String staticOuterfield="Outer static field";
-
-    //Static nested class
-    static class StaticInner
-    {
-        void display()
-        {
-            //Cannot access non-static members directly
-             // System.out.println(outerField); // ❌ Compilation error
-
-             //Can access the static members of the outer class
-             System.out.println("Accessing staic outer field: "+staticOuterfield);
-        }
-
-        void displayWithOuterInstance(Outer outer)
-        {
-            //Accessing non-static member through the instace od Outer
-            System.out.println("Accessing outer instance field: "+outer.outerfield);
-        }
-    }
-
-    public static void main(String[] args) {
-        StaticInner inner=new StaticInner();
-        inner.display();
-
-        //Creating an instance of the outer class to access non-static members
-        Outer outer=new Outer();
-        inner.displayWithOuterInstance(outer);
-    }
-}
-```
-
-The most important type of nested class is the inner class.An inner class is non-static nested class which has access to all the variables and methods of its outer class and may refer to them directly.
-```
- class Outer {
-
-    int outer_x=100;
-
-    void test()
-    {
-        Inner inner=new Inner();
-        inner.display();
-    }
-
-    //This is a inner class
-    class Inner
-    {
-      void display()
-      {
-        System.out.println("Display: outer_x: "+outer_x);
-      }
-    }
-
-    public static void main(String[] args) {
-        Outer outer=new Outer();
-        outer.test();
-    }
-}
-```
-
+# Non-Static Nested Class(Inner Class)
+It has access to members of the enclosing class(outer class).Since the inner class exists within the outer class,you must instantiate the outer class first,in order to instantiate the inner class.
 ## Static Keyword
 It is used to call the attributes or method without creating the objects.
 ```
@@ -407,6 +316,15 @@ In Java,**Access modifiers** helps to restrict the **scope of class,constructor,
 - Protected
 - Public
 ![Access Modifiers](photos/Access-Modifiers-in-Java-1.webp)
+
+## Difference between Pass by value and Pass by reference
+### Pass by value
+- Sends a copy of value.
+- it works on data types in premitive data types.
+
+### Pass by refernce
+- Sends the actual value.
+- It works on objects(non-premitive).
 
 ## Private Access Modifiers
 The methods or data members declared as private are accessible **only within the class in which they are declared**.In term's of application to classes,**apply only to nested classes and not on top-level classes**.
