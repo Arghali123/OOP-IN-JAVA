@@ -184,3 +184,25 @@ Sometimes it is useful to force an early iteration of loop.That is,you might wan
 ### Return Statement
 The return statement is used to explicitly return from a method. That is, it causes program control to transfer back to the caller of the method.
 
+# Command line Input and Output
+
+```
+public class CommandLineExample 
+{
+
+    public static void main(String[] args) {
+        // for(String num:args)
+        // {
+        //     System.out.println(num+" ");
+        // }
+
+        for(int i=0;i<=args.length;i++)
+        {
+            System.out.print(args[i]+" ");
+        }
+    }
+}
+```
+![Command Line](./Photos/CommandLineExample.jpg)
+Here args is a variable that stores the array of String.
+
