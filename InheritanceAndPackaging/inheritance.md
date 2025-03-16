@@ -73,3 +73,67 @@ public class extends A,B {...}//Java does not support
 ```
 Java does not support.
 ```
+
+# Super Keyword
+The **super** keyword in java is a reference variable that is used to refer parent class objects.It is used in following contexts:
+- Use of super with variables. 
+- Use of super with methods.
+- Use of super with constuctors.
+
+Example code:
+```
+//Parent class
+class Vechile
+{
+ String name="BMW";
+ Vechile()
+ {
+    System.out.println("This is a default constructor of vechile");
+ }
+ void method1()
+ {
+    System.out.println("This is the method 1 of parent class");
+ }
+ void method2()
+ {
+    System.out.println("This is the method2 of parent class");
+ }
+}
+
+//Child class
+class Car extends Vechile
+{
+   String name="Farrari";
+   void method1()
+   {
+    System.out.println("This is the method1 of Child class");
+   }
+   void displayDetails()
+   {
+    System.out.println("Using name of Parent class"+super.name);
+    this.method1();
+    super.method1();
+   }
+
+}
+
+public class Practice {
+    public static void main(String[] args) {
+        Car obj=new Car();
+        obj.displayDetails();
+    }
+}
+```
+
+## Single Inheritance 
+
+
+# Dynamic Method Dispatch
+- It is the type of overide.
+- It is used also known as Runtime polymorphism.
+- mechanism in java where the method call is resolved at runtime rather than at compile time.
+- Advantages:
+  - loose coupling can be achieved.
+    - It can be achieved in:
+      - Abstract classes
+      - Interfaces

@@ -1,4 +1,4 @@
-# Fundametals of class 
+# Fundametals of a Class 
 Class are the templates that are used to crete objects,and to define the objects data types and methods.A class is a user defined blue print or prototype from which objects are created.
 Class(blue print of an object)
 ```
@@ -25,6 +25,23 @@ student.details();
 
 ```
 object(instance of class)
+
+# Java Object 
+- It is a combination of data and procedures working on the available data.
+- An object has a state and behavior.
+- The state of an object is stored in fields(variables),while methods display the object's behavior.
+- It is an instance of class.
+- There are three steps in creating a Java Object.
+  - Declaration of the object.
+  - Instantiation of the object.
+  - Initialization of the object.
+
+When a Java Object is *declared*,a **name is associated with that object**.The object is *instantiated* so that **memory space can be allocated**.*Initialization* is the process of **assigning a proper initial value to this allocated space**.
+
+### Properties of Object
+- One can only interact with the object through its method.Hence,internal details are hidden.
+- When coding,an existing object may be reused.
+- When a program's operation is hindered by a particular object,that object can be removed or replaced.
 
 ### Features of OOP
 - Abstraction:chahina cheeze matra dekhauna.
@@ -316,6 +333,23 @@ In Java,**Access modifiers** helps to restrict the **scope of class,constructor,
 - Protected
 - Public
 ![Access Modifiers](photos/Access-Modifiers-in-Java-1.webp)
+
+1.) **Default Access Modifier**
+
+When no access modifier is specified for a class, method, or data member, it is said to be having the default access modifier by default. The default access modifiers are accessible only within the same package.
+
+2.) **Protected Access Modifier**
+
+The methods or data members declared as protected are accessible within the same package or subclasses in different pakages.
+> Note: We cannot declare classes or interfaces protected in java
+
+3.) **Private Access Modifier** 
+
+The methods or data members declared as private are accessible only within the class in which they are declared.Any other classes or interfaces canot be  able to access these members.
+
+4.) **Public Access Modifier**
+
+When method,variables,classes,and so on are declared public ,then we can access them from anywhere,no scope restriction.
 
 ## Difference between Pass by value and Pass by reference
 ### Pass by value
