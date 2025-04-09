@@ -125,15 +125,82 @@ public class Practice {
 }
 ```
 
-## Single Inheritance 
-
-
 # Dynamic Method Dispatch
-- It is the type of overide.
-- It is used also known as Runtime polymorphism.
-- mechanism in java where the method call is resolved at runtime rather than at compile time.
+- Mechanism by which a call to an overridden method is resolved at runtime,rather than compile time.
+- It is important beacuse this is how Java implements run-time polymorphsism.
 - Advantages:
   - loose coupling can be achieved.
     - It can be achieved in:
       - Abstract classes
       - Interfaces
+
+# Object Class in Java
+- It is present in **java.lang package**.
+- Every class in Java is directly or indirectly derived from it.
+- Hence,the Object class acts as a root of the inheritance hierarchy in any java program.
+## Object class methods
+![Object class methods](./Images/Objectclassinjava.png)
+
+
+# Final Class
+The keyword final has 3 uses.First, it can be used to create the equivalent of a named constant. The other 2 uses of final apply to inheritance.
+## Using final to Prevent Overriding
+Methods declared as final cannot be overridden.
+## Using final to prevent inheritance
+Declaring a class as final implicitly declares all of it's methods as final too.
+
+
+# Package
+- A **java package** is a group of similar types of classes,interfaces and sub-packages.
+- Categorized into 2 forms:**build-in and user defined package**.
+- There are many build-in packages such as:**java,lang,awt,javax,swing,net,io,util,sql** etc.
+## Advantages of Java Package
+- Used to categorize the classes and interfaces so they can be easily maintained.
+- Provides access protection.
+- Removes naming collision.
+The **package** keyword is used to create a package in Java
+
+
+There are three ways to access the package from outide the package.
+- import package.*;
+- import package.classname;
+- fully qualified name.
+
+
+ If you use package.* ,then all tha classes and interfaces of this package will be available but not subpackages.
+ The import keyword is used to make the classes and interfaces of other package accessible to the current package.
+
+### Subpakage in Java
+Package inside the package is called the **subpackage**.
+```
+package java.util.Scanner;
+class Simple
+{
+  puplic static void main(String[] args)
+  {
+    Scanner scan=new Scanner(System.in);
+    System.out.println("Enter a number: ");
+    int a=scan.nextInt();
+    System.out.println("Inputted number is:" +a);
+  }
+}
+```
+
+# Interface in Java
+Like a class, an interface can have methods and variables,but the methods declared in interface are by default abstract(only method signature, no body).
+- Interface specify what a class must do and not how. It is the blueprint of class.
+- An interface is about capabilites like a Player may be an interface and any class implementing Player must be able to(or must implement) move(). So it specifies a set of methods that the class has to implement.
+- If a class implements an interface and doesnot provide method bodies for all functions specified in the interface, then class must be declared abstract.
+Syntax:
+```
+interface interface_name
+{
+  declare constant fields
+  declare methods that abstract by default 
+}
+```
+To declare an interface, use **interface** keyword. It is used to provide total abstraction.That means all the methods in interface are declared with empty body and are public and all fields are public, static and final by default.A class that implement interface must implement all the methods declared in the interface.
+
+## Why to use interface?
+- It is used to achieve total abstraction.
+- Since, java doesnot support multiple inheritance in case of class, but by using interface it can achieve multiple inheritance.
