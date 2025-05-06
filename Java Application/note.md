@@ -35,3 +35,26 @@ JavaFX is a modern UI toolkit for Java applications which is designed to replace
 - **Hardware Acceleration**: JavaFX can also produce fluid animations, seamless transitions, and high-performance visual effects by rendering visuals via hardware acceleration.
 
 - **Multimedia Support**: For applications that basically contains rich media content, JavaFX often provides integrated support for multimedia components like audio, video, and 3D graphics.
+
+# Jframe(a top level window in Swing)
+JFrame is a top-level container in Java Swing used to create windows for graphical user interfaces. It provides basic window features such as a title bar, border, and buttons for closing or minimizing. It extends the Frame class and is part of the **javax.swing** package.
+
+To create a JFrame, you instantiate the **JFrame class**. You can set properties like title, size, and default close operation. Components like buttons, labels, and panels are added to the JFrame's content pane. **The setVisible(true)** method makes the frame visible.
+Java
+
+
+
+# JPanel in Swing
+JPanel, a part of the **Java Swing package**, is a container that can store a group of components. The main task of JPanel is to organize components, various layouts can be set in JPanel which provide better organization of components, however, it does not have a title bar.
+
+# Event Handling
+An **event is a change in the state of an object triggered by some action** such as Clicking a button, Moving the cursor, Pressing a key on the keyboard, Scrolling a page, etc. In Java, the **java.awt.event** package provides various event classes to handle these actions.
+
+Event Handling has three components:
+- Events
+- Events Source
+- Listeners
+
+## Important Events classes and interface
+
+

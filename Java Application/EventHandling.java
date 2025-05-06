@@ -10,7 +10,7 @@ public class EventHandling {
         JFrame jFrame=new JFrame("Event handling");
         jFrame.setSize(500,400);
         //jFrame.setLayout(new FlowLayout());
-        jFrame.setLayout(FlowLayout.LEFT);
+        jFrame.setLayout(new FlowLayout().LEFT);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JButton jButton1=new JButton("Button1");
