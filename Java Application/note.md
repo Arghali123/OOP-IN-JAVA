@@ -1,60 +1,204 @@
-Java's UI frameworks include Java AWT, Java Swing, and JavaFX. This plays a very important role in creating the user experience of Java applications. These frameworks provide a range of tools and components for creating graphical user interfaces (GUIs) that are not only functional but also visually appealing. As a Java developer, selecting the right UI framework is difficult to ensure your application meets both technical and user-oriented requirements.
+# About AWT and Swing
+AWT and Swing both are used to create GUI interface.Both are used to perform  almost same work,still they differ from each other.Following are the differences between AWT and Swing.
 
-# Java AWT
-**The Abstract Window Toolkit (AWT)** is like the reliable foundation of Java's GUI development. It's been around for a while and is like the sturdy base that helps developers build interfaces that look and feel the same, no matter which operating system they're on. Basically, AWT uses the special features of each operating system to make sure the interface feels familiar to users.
+## AWT
+- Stands for **Abstract Window Toolkit**.
+- **Components are heavy weight**.
+- Components are **platform dependent** so,**there look and feel changes according to OS**.
+- Components are not very good in look and feel as compared to Swing components.
+- Limited set of components.
 
-It is simple and very trustworthy which makes it perfect for projects where a straightforward approach to building interfaces is preferred
+## Swing
+- It is a part of **Java Foundation Class(JFC)**.
+- Components are **light weight**.
+- Components are **platform independent** so,**there look and feel remains constant**.
+- Components are better in look and feel as compared to AWT.
+- Has more and powerful components.
 
-## Features and Components of Java AWT
-- **Components for Building Interfaces**: AWT provides various different components like buttons, text fields, and checkboxes that you can basically use to build the visual part of your application.
-- **Interaction with Users**: These components are designed to interact with users and simply allow them to click buttons, enter text in fields, and select particular options from checkboxes.
-- **Handling Complex Elements**: AWT also offers more complex and multiple advanced elements like menus, dialogs, and windows that basically enable you to create innovatory interfaces that can simply display information and respond to user actions.
+### JFrame
+Whenever you create a graphical user interface with Java Swing functionality,you will need a container for your application. In case of Swing ,this container is called a Jframe. All GUI application requires a JFrame.
 
-#  Java Swing 
-**Java Swing** is a very powerful GUI toolkit for Java applications, introduced as an extension of AWT. Unlike AWT, Swing provides a rich set of components and features that are all implemented in Java. While AWT components are based on the native platform, Swing components are simply entirely written in Java which provides a consistent look and feel across different platforms. And with this feature Swing simply becomes a very popular choice for cross-platform applications. Despite the emergence of newer frameworks like JavaFX, Swing remains relevant and widely used in Java GUI development.
+**Why to use JFrame?**
 
-## Features and components of Java Swing
-1. **Rich Component Library**: The design of complicated and feature-rich user interfaces is essentially made possible by Swing's vast library consisting multiple components, which includes buttons, text fields, lists, tables, and many more items.
+We cannot build a house without the foundation. The same is true in Java: Without a container in which to put all other elements,you won't have a GUI application.
 
-1. **Customization and Look-and-Feel**: Swing components are basically highly customizable, and they provide a consistent look and feel across various different platforms that gives developers greater control over the visual appearance of their applications.
+> Note: Light-weight: mean's that donot take up much space or use many system resources.
 
-1. **Advanced Features**: Numerous advanced functions offered by Swing like support for drag and drop, integrated undo/redo capabilities, and pluggable style and feel, simply improve both the user experience and the productivity of developers.
+This class has it's own methods and constructors that impact the Jframe,such as **setSize(),setVisible()** etc.
 
-1. **Support for MVC Architecture**: Swing is basically designed on **the Model-View-Controller (MVC) architecture**, which separates the data model, user interface, and control logic which simply makes it easier to maintain and extend applications.
+### JPanel in Swing
+- It is a simplest container class.
+- It provides space in which an application can attach any other components.
+- It **inherits the JComponents class**.
+- It **doesnot have title bar**.
 
-1. **Integration with AWT**: While Swing is generally an independent framework, it can seamlessly integrate with AWT that allows developers to combine AWT and Swing components in their applications for added flexibility
+# Swing Components and Containers
+A component is an independent visual control.**All components are derived from the JComponent class**.This class provides some common functionality like pluggable look and feel,support for accessibilty,drag and drop,layout etc.
 
-1. **Event-Driven Programming**: Swing simply follows an event-driven programming model in which, user actions or system events trigger responses in the application that simply enables the instructiveness and responsiveness in interfaces.
+A container holds a group of components.It provides a space where a components can be managed and displayed.Container are of two types:
+- **Top level Containers**
+  - It **inherits component and container of AWT**.
+  - It **cannot be contained within other containers**.
+  - Heavy weight.
+  - eg: JFrame,JDialog,JApplet.
 
-# JavaFX
-JavaFX is a modern UI toolkit for Java applications which is designed to replace Swing as the standard GUI library.
+- **Lightweight Containers**
+  - It **inherits JComponents class**.
+  - It is a general purpose conatainer.
+  - Used to organize related components together.
+  - eg: JPanel.
 
-# Feature and Components of JavaFX
-- **Modern UI Components**: A wide range of contemporary UI components, including as tables, charts, trees, and more, are typically provided by JavaFX, enabling the development of visually appealing and feature-rich user interfaces.
+### JButton
+JButton is in implementation of a push button.It is used to trigger an action if ther user clicks on it.It can display a text,an icon or both.
 
-- **Hardware Acceleration**: JavaFX can also produce fluid animations, seamless transitions, and high-performance visual effects by rendering visuals via hardware acceleration.
+### JLabel
+Label is a simple component for displaying **text,images or both**.It doesnot react to input events.
 
-- **Multimedia Support**: For applications that basically contains rich media content, JavaFX often provides integrated support for multimedia components like audio, video, and 3D graphics.
+### JTextField
+JTextField is a text component that allows editing of a single line of non-formatted text.
 
-# Jframe(a top level window in Swing)
-JFrame is a top-level container in Java Swing used to create windows for graphical user interfaces. It provides basic window features such as a title bar, border, and buttons for closing or minimizing. It extends the Frame class and is part of the **javax.swing** package.
+### JCheckBox
+JCheckBox is a box with a label that has two states:on or off.If the check box is selected,it is represented by a tick box.**A checkbox can be used to show or hide a splashscreen at stratup,toggle visibilty of a toolbar** etc.
 
-To create a JFrame, you instantiate the **JFrame class**. You can set properties like title, size, and default close operation. Components like buttons, labels, and panels are added to the JFrame's content pane. **The setVisible(true)** method makes the frame visible.
-Java
+### JComboBox
+JComboBox is a component that **combines a button or editable field and a drop-down list**.The user can select a value from the drop-down list,which appears at the user's request.If you make the combo box editable,then the combobox includes an editable field into which the user can type a value.
+
+**Example:**
+```
+ String arr[]={"MCA","BBA","BCA","MBA"};
+ JComboBox cmb=new JComboBox(arr);
+
+ //or
+
+ JComboBox<String> cmb=new JComboBox<String>();
+ cmb.addItem("MCA");
+ cmb.addItem("BBA");
+ cmb.addItem("BCA");
+ cmb.addItem("MBA");
+```
+
+### JList
+It is a component that displays a list of objects.It allows the user to select one or more items.
+
+**Example:**
+```
+String arr[]={"MCA","BBA","BCA","MBA"};
+JList cmb=new JList(arr);
+```
+
+### JTextArea
+A JTextArea is a multiline text area that displays plain text.It is a light-weight component for working with the text.The component doesnot handle scrolling.For this task,we use **JScrollPane** component.
+
+### JTable
+The JTable class is a **part of Java Swing Package** and is generally used to display or edit two dimensional data that is having both rows and columns.It is similar to a spreadsheet.This arranges data in tabular form.
+
+### JMenu
+- The JMenu class is used to display menubar on the window or frame.It may have several menus.
+- The object of JMenu class is a pulldown menu component which is displayed from the menubar.
+- It inherits the JMenuItem class.
+- The object of JMenuItem class adds a simple labeled menu item. The items used in a menu must belong to the JMenuItem or any of its subclass.
+
+# Dialog Boxes in Swing
+Dialog windows or dialogs are an indispensable(absolutely necessary) part of the most mordern GUI applications.In a computer application a dialog is a window which is used to "talk" to the application.A dialog is used to input data,modify data,change the application settings etc.
+
+In Java Swing,we can create two types of dialogs: **standard dialogs and custom dialogs**.
+- **Custom Dialogs**: Are created by programmers.They are **based on the JDialog class**.
+- **Standard Dialogs**: Predefined dialogs available in the Swing toolkit,for eg: **JColorChooser,JFileChooser**.
+
+## Modal and Modeless Dialog
+There are two basic types of dialogs: **modal and modeless**.Modal dialogs block input to other top-level windows.Modeless dialogs allow input to other windows.An open file dialog is a good example of a modal dialog.While choosing a file to open,no other operation should be permitted.A typical modeless dialog is a find text dialog.It is handy to have the ability to move the cursor in the text control and define,where to start the finding of the particaular text.
+
+### Standard Dialog Example-Message Box
+```
+ JOptionPane.showMessageDialog(null,"Hello world");
+```
+
+### Custom Dialog Creation
+```
+JDialog jd=new JDialog();
+jd.setTitle("This is a Test Dialog");
+JLabel lbl=new JLabel("Do you want to exit");
+jd.add(lbl);
+JButton yes=new JButton("Yes");
+jd.add(yes);
+```
+
+# Layout Management
+In Java Swing,Layout manager is used to position all its components,with setting properties such as : size,shape and the arrangement.
+Following are the different types of layout managers:
+- Flow Layout
+- Border Layout
+- Grid Layout
+
+## Flow Layout
+The Flow Layout arranges the components in a directional flow,either from left to right,or from right to left.Normally all the components are set to one row,according to the order of different components.If all components cannot fit into one row,it will start a new row and fit the rest in it.
+
+## Border Layout
+A BorderLayout lays out a container ,arranging its components to fit into five regions:**NORTH,SOUTH,EAST,WEST and CENTER**.For each region,it may contain more than one component.
+
+For BorderLayout,it can be constructed like below:
+- **BorderLayout()**: construct a border layout with no gaps between components.
+- **BorderLayout(int hgap,int vgap)**: construct a border layout with specified gaps between components.
+
+## Grid Layout
+The GridLayout manager is used to lay out the components in a rectangle grid,which has been divided into equal-sized rectangles and one component is placed in each rectangle.
+
+It can be constructed with following methods:
+- **GridLayout():** construct a grid layout with one column per components in a single row.
+- **GridLayout(int row,int col):** construct a grid layout with specified number of rows and columns.
+- **GridLayout(int row,int col,int hgap,int vgap):** construct a grid layout with specified rows,columns and gaps between components.
 
 
+# MDI using JDesktop Pane and JInternal Frame
+MDI-**Multi Document Interface**
 
-# JPanel in Swing
-JPanel, a part of the **Java Swing package**, is a container that can store a group of components. The main task of JPanel is to organize components, various layouts can be set in JPanel which provide better organization of components, however, it does not have a title bar.
+The JDesktopPane class,can be used to create "multi-document" applications.A multi-document application can have many windows in it.The JDesktopPane is a container which is used to create a multiple-document interface or a virtual desktop.The JFrame inside the desktop becomes JInternalFrame.JInternalFrame is used just like the JFrame but is added to JDesktopPane object.
 
-# Event Handling
-An **event is a change in the state of an object triggered by some action** such as Clicking a button, Moving the cursor, Pressing a key on the keyboard, Scrolling a page, etc. In Java, the **java.awt.event** package provides various event classes to handle these actions.
+# Event Handling 
+Event describes the change in state of any object.For example: pressing a button,entering a character in TextBox,clicking or dragging a mouse etc.
 
-Event Handling has three components:
-- Events
-- Events Source
-- Listeners
+It has three main components:
+- **Events**: An event is a change in state of an object.
+- **Event Source**: It is an object that generates an event.
+- **Listeners**: A listener is an object that listens to the event.A listerner gets notified when an event occurs.
 
-## Important Events classes and interface
+## How events are handled?
+A source generates an Event and send it to one or more listeners registered with the source.Once event is received by the listerner,they process the event and return.Events are supported by a number of Java packages,like: **java.util,java.awt** and **java.awt.event**.
 
+### Important Event Classes and Interface
+![Important event classes and interface](EventClassesAndInterface.jpg)
 
+### Example of ActionListener
+```
+JButton btn=new JButton("Click Here");
+btn.addActionListener(new ActionListener()
+{
+  public void actionPerformed(ActionEvent e)
+  {
+    //event handling code here
+  }
+});
+```
+
+### Example of ItemListener
+```
+JComboBox cmb=new JComboBox(arr);
+cmb.addItemListener(new ItemListener()
+{
+  public void actionPerformed(ItemEvent e)
+  {
+    if(e.getStateChange()==ItemEvent.SELECTED)
+    {
+      //event handling code
+    }
+  }
+})
+```
+
+## Keyboard and Mouse Events
+The Java **MouseListener** is notified whenever you change the state of the mouse.It is notified against MouseEvent.The MouseListener interface is found in **java.awt.event** package.It has 5 methods:
+- void mouseClicked(MouseEvent e);
+- void mouseEntered(MouseEvent e);
+- void mouseExited(MouseEvent e);
+- void mousePressed(MouseEvent e);
+- void mouseReleased(MouseEvent e);
