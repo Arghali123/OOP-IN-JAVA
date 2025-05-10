@@ -202,3 +202,8 @@ The Java **MouseListener** is notified whenever you change the state of the mous
 - void mouseExited(MouseEvent e);
 - void mousePressed(MouseEvent e);
 - void mouseReleased(MouseEvent e);
+
+The Java **KeyListener** is notified whenever you change the state of key.It is notified against KeyEvent.The KeyListener interface is found in java.awt.event package.It has three methods:
+- void keyPressed(KeyEvent e);
+- void keyReleased(KeyEvent e);
+- void keyTyped(KeyEvent e);
