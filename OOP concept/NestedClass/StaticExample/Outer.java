@@ -6,7 +6,7 @@ public class Outer {
         System.out.println("Hello world");
     }
 
-    //Static class:by the help of static class we don't have to create objets to acess.
+    //Static class:by the help of static class we don't have to create objects to access.
     static class Inner
     {
        void displayInnerClassDetails()

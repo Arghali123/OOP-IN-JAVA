@@ -269,6 +269,11 @@ In Java,you can define a class within another class.Such class is known as neste
 - Non-Static Nested Class(inner class).
 - Static Nested Class.
 
+# Static Nested Classes
+- Declared with *static*
+- Cannot access instance members of the outer class directly
+- Think of them as **associated with the class**, not instances of it
+
 # Non-Static Nested Class(Inner Class)
 It has access to members of the enclosing class(outer class).Since the inner class exists within the outer class,you must instantiate the outer class first,in order to instantiate the inner class.
 ## Static Keyword

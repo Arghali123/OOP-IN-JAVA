@@ -51,7 +51,7 @@ a[10=50];//ArrayIndexOutOfBoundsException
 ```
 
 ## Java finally block
-Java finally block is a block that is used to execute important code such as closing connection,stream etc.It is always executed whether is handled or not. Java finally block follows try or catch block.
+Java finally block is a block that is used to execute important code such as closing connection,stream etc.It is always executed whether exception is handled or not. Java finally block follows try or catch block.
 
 ## Java Multi-catch block
 A try block can be followed by one or more catch blocks. Each catch block must contain a different exception handler. So, if you have to perform different tasks at the occurance of different exceptions, use java multi-catch block.

@@ -137,7 +137,7 @@ There are 2 replace methods in java string.
 Eliminates leadind and trailing spaces. The unicode value of space character is '\u0020'. It checks this unicode value before and after the string,if it exists then removes the spaces and returns the ommited string.
 
 # String Buffer
-Java StringBuffer class is used to create mutable(modifiable) string.The StrinfBuffer class is java is same as String class except it is mutable i.e. it can be changed.
+Java StringBuffer class is used to create mutable(modifiable) string.The StringBuffer class is java is same as String class except it is mutable i.e. it can be changed.
 
 ## Important Constructors of StringBuffer class
 ![Constructors of StringBuffer class](./Photos/ConstructorsOfStringBuffer.jpg)
@@ -190,6 +190,8 @@ The current length of a StringBuffer can be found via **length()** method, while
 int length()
 int capacity()
 ```
+
+Since msg is initialized with the string "Hello" when it is created,its length is 5.Its capacity is 21 because room for 16 additional characters is automatically added.
 
 - **charAt() and setCharAt()**
 The value of a single character can be obtained from a StringBuffer via the **charAt()** method. You can set the value of a character within a StringBuffer **using setCharAt().**

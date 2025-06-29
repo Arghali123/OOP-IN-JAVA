@@ -147,7 +147,7 @@ The keyword final has 3 uses.First, it can be used to create the equivalent of a
 ## Using final to Prevent Overriding
 Methods declared as final cannot be overridden.
 ## Using final to prevent inheritance
-Declaring a class as final implicitly declares all of it's methods as final too.
+Sometimes you will want to prevent a class from being inherited.To do this,precede the class declaration with final.Declaring a class as final implicitly declares all of it's methods as final,too.As you might expect,it is illegal to declare a class as both abstract and final since an abstract class is incomplete by itself and relies upon its subclasses to provide complete implementations.
 
 
 # Package

@@ -6,7 +6,7 @@ The Java run-time system depends on threads for many things. Threads reduces the
 Theads exits in several states.
 - **New**: When we create an instance of Thread class, a thread is in a new state.
 - **Running**: The java thread is in running state.
-- **Suspended**: A running thred can be **suspended**, which temporarily suspends its activity. A suspended thread can be resumed, allowing it to pick up where it left off.
+- **Suspended**: A running thread can be **suspended**, which temporarily suspends its activity. A suspended thread can be resumed, allowing it to pick up where it left off.
 - **Blocked**: A Java thread can be blocked when waiting for a resource.
 - **Terminated**: A thread can be terminated, which halts its execution immediately at any given time. Once a thread is terminated, it cannot be resumed.
 
