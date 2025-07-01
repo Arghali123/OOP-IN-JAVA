@@ -297,7 +297,7 @@ Java Collection framework provides a Stack class which models and implements Sta
 - **push(element)**
 - **pop()**: removes and returns the top element of the stack.An 'EmptyStackException' exception is thrown if we call pop() when the invoking stack is empty.
 - **peek()**: returns the element on the top of the stack,but doesnot remove it.
-- **empty()**
+- **empty()**: It returns true if nothing is on the top of the stack.Else,returns false.
 - **search(element)**: It determines whether an object exists in the stack.If the element is found,it returns the position of the element from the top of the stack.Else,it returns -1.
 
 ## Hashtable Class
