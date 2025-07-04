@@ -307,6 +307,27 @@ To successfully store and retrieve objects from a hashtable,the objects used as 
 - It is similar to HashMap,but is synchronised.
 - HashTable stores key/value pair in hash table.
 - In hashTable we specify an object that is used as a key,and the value we want to associate with that key.The key is then hashed,and the resulting hashcode is used as the index at which the value is stored within the table.
+- In a Hashtable, both keys and values must be non-null.
+- If you try to insert a null key or a null value, it will throw a NullPointerException.
+
+**Example**
+```
+import java.util.Hashtable;
+
+public class Example {
+    public static void main(String[] args) {
+        Hashtable<Integer, String> table = new Hashtable<>();
+
+        table.put(1, "Apple"); // Valid
+        table.put(2, "Banana"); // Valid
+
+        // table.put(null, "Orange");  // Throws NullPointerException
+        // table.put(3, null);         // Throws NullPointerException
+
+        System.out.println(table);
+    }
+}
+```
 
 ### Methods in HashTable
 - **put(key,index)**
