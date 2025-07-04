@@ -38,88 +38,160 @@ Accessing elements of these data structures was a hassle as each had a different
 
 ## Map Interface
 The **java.util.Map** interface represents a mapping between a key and a value.Few characteristics of Map interface are as follow:
-- **No Duplicate Keys, One Value per Key**
-  - A **Map** cannot have duplicate keys. Each key maps to **at most one value**.
-  - If you try to insert the same key again, it will overwrite the previous value.
 
-**Example:**
-```
-Map<String, String> map = new HashMap<>();
-map.put("Nepal", "Kathmandu");
-map.put("India", "Delhi");
-map.put("Nepal", "Pokhara"); // This will replace "Kathmandu" with "Pokhara"
+✅**A Map cannot contain duplicate keys and each key can map to at most one value. Some implementations allow null key and values like HashMap and LinkedHashMap, but some do not like TreeMap**
 
-System.out.println(map);
-// Output: {India=Delhi, Nepal=Pokhara}
+**Explanation**
+
+- A Map stores **unique keys**.
+- If you insert a duplicate key, it **overwrites** the previous value.
+- HashMap and LinkedHashMap allow **one null key and multiple null values**.
+- TreeMap **does not allow null key** (throws *NullPointerException*) but allows **null values**.
 
 ```
+import java.util.*;
 
--  **Null Keys and Null Values**
-   -  Some implementations **allow null keys and values**:
-   - ✅ HashMap and LinkedHashMap allow one null key and multiple null values.
-   - ❌ TreeMap does not allow null keys because it needs to compare keys (uses natural ordering).
-**Example:**
-```
-Map<String, String> hashMap = new HashMap<>();
-hashMap.put(null, "NullKeyAllowed");
-hashMap.put("Fruit", null);
-System.out.println(hashMap);
-// Output: {null=NullKeyAllowed, Fruit=null}
+public class MapNullKeyExample {
+    public static void main(String[] args) {
+        Map<String, String> hashMap = new HashMap<>();
+        hashMap.put(null, "NullKey");     // allowed
+        hashMap.put("One", null);         // allowed
+        System.out.println("HashMap allows null: " + hashMap);
 
-Map<String, String> treeMap = new TreeMap<>();
-treeMap.put(null, "Test");  // Throws NullPointerException
-
-```
-
-- **Order Depends on Implementation**
-  - **HashMap**: No order of keys or values.
-  - **LinkedHashMap**: Maintains insertion order.
-  - **TreeMap**: Maintains natural sorted order of keys.
-
-Example:
-```
-Map<String, Integer> hashMap = new HashMap<>();
-hashMap.put("Banana", 3);
-hashMap.put("Apple", 2);
-hashMap.put("Cherry", 1);
-System.out.println("HashMap: " + hashMap);
-
-Map<String, Integer> linkedMap = new LinkedHashMap<>();
-linkedMap.put("Banana", 3);
-linkedMap.put("Apple", 2);
-linkedMap.put("Cherry", 1);
-System.out.println("LinkedHashMap: " + linkedMap);
-
-Map<String, Integer> treeMap = new TreeMap<>();
-treeMap.put("Banana", 3);
-treeMap.put("Apple", 2);
-treeMap.put("Cherry", 1);
-System.out.println("TreeMap: " + treeMap);
-
-//Output
-HashMap: {Apple=2, Banana=3, Cherry=1}    // order may vary
-LinkedHashMap: {Banana=3, Apple=2, Cherry=1} // preserves insertion order
-TreeMap: {Apple=2, Banana=3, Cherry=1}   // sorted by key
+        Map<String, String> treeMap = new TreeMap<>();
+        treeMap.put("A", "Apple");
+        treeMap.put("B", null);           // allowed
+        // treeMap.put(null, "NullKey");  // causes NullPointerException
+        System.out.println("TreeMap with null value: " + treeMap);
+    }
+}
 ```
 
 
-- **Interfaces and Classes**
-  - **Interfaces**:
-    - Map<K, V> – the base interface for key-value pairs.
-    - SortedMap<K, V> – maintains a sorted order (extended by NavigableMap).
-  - **Classes**:
-    - **HashMap** – no order, allows null.
-    - **TreeMap** – sorted order, no null keys.
-    - **LinkedHashMap** – insertion order, allows null.
+✅**The order of a map depends on specific implementations (e.g., TreeMap and LinkedHashMap have predictable order, while HashMap does not)**
+
+**Explanation**
+
+- HashMap **does not maintain any order** of keys.
+- LinkedHashMap **maintains insertion order**.
+- TreeMap **maintains keys in natural (sorted) order**.
+
+```
+import java.util.*;
+
+public class MapOrderExample {
+    public static void main(String[] args) {
+        Map<String, Integer> hashMap = new HashMap<>();
+        hashMap.put("Banana", 2);
+        hashMap.put("Apple", 5);
+        hashMap.put("Mango", 3);
+        System.out.println("HashMap (no order): " + hashMap);
+
+        Map<String, Integer> linkedHashMap = new LinkedHashMap<>();
+        linkedHashMap.put("Banana", 2);
+        linkedHashMap.put("Apple", 5);
+        linkedHashMap.put("Mango", 3);
+        System.out.println("LinkedHashMap (insertion order): " + linkedHashMap);
+
+        Map<String, Integer> treeMap = new TreeMap<>();
+        treeMap.put("Banana", 2);
+        treeMap.put("Apple", 5);
+        treeMap.put("Mango", 3);
+        System.out.println("TreeMap (sorted order): " + treeMap);
+    }
+}
+
+```
+
+✅ **There are two interfaces for implementing Map in Java: Map and SortedMap, and three classes: HashMap, TreeMap, and LinkedHashMap**
+
+**Explanation:**
+
+- *Map* is the main interface for key-value mappings.
+- *SortedMap* is a sub-interface of *Map* that **maintains a sorted order** of keys.
+- Implementations:
+  - *HashMap*: Fast but unordered.
+  - *LinkedHashMap*: Maintains insertion order.
+  - *TreeMap*: Implements **SortedMap**, stores entries in sorted order.
+
+```
+import java.util.*;
+public class MapInterfacesExample {
+    public static void main(String[] args) {
+        Map<String, Integer> map = new HashMap<>();
+        SortedMap<String, Integer> sortedMap = new TreeMap<>();
+
+        map.put("Dog", 1);
+        map.put("Cat", 2);
+        System.out.println("Map interface using HashMap: " + map);
+
+        sortedMap.put("Zebra", 3);
+        sortedMap.put("Elephant", 5);
+        System.out.println("SortedMap interface using TreeMap: " + sortedMap);
+    }
+}
+  ```
+
 
 ## Methods in Map Interface:
 1. put(key,value): This method is used to insert an entry in this map.
-1. pullAll(Map map): This method is used to insert the specified map in this map.
 1. remove(key): This method is used to delete an entry for the specified key.
 1. get(key): This method is used to return the value for the specified key.
 1. containsKey(key): This method is used to search the specified key from this map.
 1. clear(): This method is used to clear all the elements.
 1. size(): This method returns the number of components.
+1. putAll(Map map)
+
+The **putAll()** method is used to **copy all mappings** from one map into another.
+- It **overwrites** the existing values for the same keys.
+- The method signature is:
+```
+void putAll(Map<? extends K, ? extends V> m)
+```
+
+✅ Example: Using putAll() in Java
+```
+import java.util.*;
+
+public class PutAllExample {
+    public static void main(String[] args) {
+        // First map
+        Map<String, String> map1 = new HashMap<>();
+        map1.put("A", "Apple");
+        map1.put("B", "Banana");
+
+        // Second map
+        Map<String, String> map2 = new HashMap<>();
+        map2.put("C", "Cat");
+        map2.put("D", "Dog");
+
+        // Copying all elements of map1 into map2
+        map2.putAll(map1);
+
+        // Display final map2 after putAll
+        System.out.println("Final map2 after putAll(): " + map2);
+    }
+}
+```
+
+✅ Another Example (with Overwriting Keys)
+```
+public class PutAllOverwriteExample {
+    public static void main(String[] args) {
+        Map<Integer, String> original = new HashMap<>();
+        original.put(1, "One");
+        original.put(2, "Two");
+
+        Map<Integer, String> newMap = new HashMap<>();
+        newMap.put(2, "Second"); // Same key as original
+        newMap.put(3, "Three");
+
+        newMap.putAll(original);
+
+        System.out.println("Merged map: " + newMap);
+    }
+}
+```
 
 ## List Interface
 The **java.util.List** is a child interface of Collection.It is **an ordered collection of objects in which duplicate values can be stored**.Since List preserves the insertion order,it allows positional access and insertion of elements.**List interface is implemented by ArrayList,LinkedList,Vector and Stack classes**.
