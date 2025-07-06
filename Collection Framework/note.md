@@ -194,14 +194,66 @@ public class PutAllOverwriteExample {
 ```
 
 ## List Interface
-The **java.util.List** is a child interface of Collection.It is **an ordered collection of objects in which duplicate values can be stored**.Since List preserves the insertion order,it allows positional access and insertion of elements.**List interface is implemented by ArrayList,LinkedList,Vector and Stack classes**.
+🟩 **Statement**:
+> "The java.util.List is a child interface of Collection."
 
-List is an interface,and the instances of List can be created in the following ways:
+- In Java, the **Collection** interface is a root interface in the **Collection Framework**.
+- List is a **sub-interface** of Collection. It inherits all methods from Collection and adds more methods for **indexed access**.
+
+🟩 **Statement**
+> "It is an ordered collection of objects in which duplicate values can be stored."
+- **Ordered**: Items in the list are stored in the order you add them.
+- **Duplicates allowed**: You can add the same value more than once.
 ```
-List a=new ArrayList();
-List b=new LinkedList();
-List c=new Vector();
-List d=new Stack();
+List<String> names = new ArrayList<>();
+names.add("Alice");
+names.add("Bob");
+names.add("Alice");  // duplicate allowed
+
+System.out.println(names); // Output: [Alice, Bob, Alice]
+```
+
+🟩 **Statement**
+> "Since List preserves the insertion order, it allows the position access and insertion of elements."
+- The order of elements is maintained **(first in = first out**, in the same order you inserted).
+- You can **access and insert** elements using index positions.
+
+```
+import java.util.ArrayList;
+import java.util.List;
+
+public class ListInterfaceExample {
+    public static void main(String[] args) {
+        List<String> cities=new ArrayList<>();
+        cities.add("kathmandu");
+        cities.add("Pokhara");
+        cities.add("Lalitpur");
+
+        //Acccess element by index
+        System.out.println(cities.get(1));//output:Pokhara
+
+        //Insert element at position 1
+        cities.add(1,"Biratnagar");
+        System.out.println(cities);//Output: [Kathmandu, Biratnagar, Pokhara, Lalitpur]
+    }
+}
+```
+
+🟩 **Statement**
+> "List interface is implemented by ArrayList, LinkedList, Vector, and Stack classes."
+
+Each of these classes gives a different way to use a List:
+| Class        | Description                                                       |
+| ------------ | ----------------------------------------------------------------- |
+| `ArrayList`  | Fast, resizable array, best for frequent access.                  |
+| `LinkedList` | Good for adding/removing elements frequently.                     |
+| `Vector`     | Like `ArrayList`, but **synchronized** (thread-safe).             |
+| `Stack`      | A subclass of `Vector` that follows **LIFO** (Last-In-First-Out). |
+```
+List<String> arrayList = new ArrayList<>();
+List<String> linkedList = new LinkedList<>();
+List<String> vector = new Vector<>();
+Stack<String> stack = new Stack<>();
 ```
 
 ### Methods in List Interface:
