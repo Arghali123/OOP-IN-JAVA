@@ -78,11 +78,91 @@ The constructor which has parameters or arguments is known as parameterized cons
 
 ## The this keyword
 Keyword *this* is a reference variable in Java that refer's to the current object.The various uses of this keyword are as follow:
-- It can be used to refer the instance variable of current class.
-- It can be used to invoke or initiate current class constructor.
-- It can be used as an argument in the method call.
-- It can be used as argument in the constructor call.
-- it can be used to return the current class instance.
+✅ 1.) It can be used to refer the instance variable of current class.
+
+✅ 2.) Invoke current class constructor
+```
+class Student {
+    int id;
+    String name;
+
+    Student() {
+        this(101, "Default Name"); // calling parameterized constructor
+    }
+
+    Student(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    void display() {
+        System.out.println(id + " " + name);
+    }
+
+    public static void main(String[] args) {
+        Student s = new Student();
+        s.display();
+    }
+}
+```
+
+✅ 3.) Used as an argument in the method call
+```
+class Student {
+    void display(Student s) {
+        System.out.println("Method called with object: " + s);
+    }
+
+    void callDisplay() {
+        display(this); // passing current object as argument
+    }
+
+    public static void main(String[] args) {
+        Student s = new Student();
+        s.callDisplay();
+    }
+}
+```
+
+✅ 4.) Used as an argument in constructor call
+```
+class Student {
+    Student() {
+        Helper h = new Helper(this); // passing current object
+    }
+}
+
+class Helper {
+    Helper(Student s) {
+        System.out.println("Student object received: " + s);
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Student s = new Student();
+    }
+}
+```
+
+✅ 5.) Return the current class instance
+```
+class Student {
+    Student getStudent() {
+        return this;
+    }
+
+    void show() {
+        System.out.println("This is the current object");
+    }
+
+    public static void main(String[] args) {
+        Student s = new Student();
+        s.getStudent().show(); // chaining using this
+    }
+}
+
+```
 
 Sometimes a method will need to refer to the object that invoked it.To allow this,Java defined *this* keyword.*this* can be used inside any method to refer to the current object.That is ,*this* is always a refernce to the object on which the method was invoked.You can use 
 *this* anywhere a reference to an object of the currenr class type is permitted.

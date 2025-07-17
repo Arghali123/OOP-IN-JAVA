@@ -1,4 +1,4 @@
-package MDI;
+// package MDI;
 
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;

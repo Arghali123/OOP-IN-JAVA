@@ -1,21 +1,40 @@
-import java.util.HashSet;
+
+import java.util.TreeSet;
 
 public class HashSetBook {
-    public static void main(String[] args) {
-        HashSet<String> h=new HashSet<String>();
-        //Adding elements into HashSet
+    public static void main(String[] args) 
+    {
+       TreeSet<Integer> numbers=new TreeSet<>();
+       numbers.add(10);
+       numbers.add(5);
+       numbers.add(10);
+       System.out.println("TreeSet: "+numbers);//no duplicate allowed
 
-        h.add("India");
-        h.add("Australia");
-        h.add("South Africa");
-        h.add("India");//adding duplicate elements
+       TreeSet<String> fruits=new TreeSet<>();
+       fruits.add("Mango");
+       fruits.add("Banana");
+       fruits.add("Apple");
+       System.out.println(fruits);//automatically sorted
 
-        //Displaying the HashSet
-        System.out.println(h);
-        System.out.println("List contains India or not: "+h.contains("India"));
+       TreeSet<String> cities=new TreeSet<>();
+       cities.add("Kathmandu");
+       cities.add("Bhaktapur");
+       cities.add("Lalitpur");
+       System.out.println("TreeSet(Sorted not inserted): "+cities);
 
-        //removing items from HashSet using remove()
-        h.remove("Australia");
-        System.out.println("After removing Australia: "+h);
+       TreeSet<Integer> data=new TreeSet<>();
+       for(int i=1000;i>=1;i--)
+       {
+        data.add(i);
+       }
+       //fast retrieval 
+       System.out.println("Smallest element: "+data.first());
+       System.out.println("Largest element: "+data.last());
+
+       TreeSet set=new TreeSet<>();
+       set.add("Apple");
+       set.add("Banana");
+       set.add(100);
+       System.out.println(set);//ClassCastException
     }
 }
