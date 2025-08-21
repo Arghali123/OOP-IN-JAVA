@@ -53,12 +53,19 @@ When a Java Object is *declared*,a **name is associated with that object**.The o
 
 # Constructor
 A *constructor* in Java is a block of code similar to method that's is called when an instance of object is created.Here are difference between constructor and method:
+
 - A constructor doesnot have return type.
 - The name of constructor must be same as the name of the class.
 - Unlike,methods constructor are not considered as member of class.
 - A constructor is called automatically when a new instance of an object is created.
 
 > Note: All classes have constructor whether you define or not,because Java automatically provide's a default constructor that initializes all members variables to zero.There are 2 types of constructor Default constructor and Parameterized Constructor.
+
+A constructor may be static or non-static.Non static constructors are also called instance constructor because they are called to initialize new instances,while static constructors are known as class constructors because-if-defined-they are called before the first object of that specific class is created in a program.Class constructors provide a useful way to initialize static members while this is not possible during their declaration.Since class constructors are automatically called by JVM they are subject to some restrictions:
+: 
+- there can be atmost one class-constructors defined per each classes.
+- class-constructors must be paratemer-less.
+
 
 Syntax of Constructor:
 ```
@@ -72,6 +79,17 @@ class Classname
 ```
 ## Default Constructor
 The *default constructor* is a constructor that is automatically generated in the absence of explicit constructor(i.e user defined constructor).Sometimes also called *nullary* constructor.
+```
+Java does not have static constructors.Instead, it uses static initializer blocks:
+class MyClass {
+    static int staticValue;
+
+    static {
+        System.out.println("Static block called.");
+        staticValue = 42;
+    }
+}
+```
 
 ## Parameterized Constrcutor
 The constructor which has parameters or arguments is known as parameterized constructor.The values of arguments are assigned to data members of the class.
@@ -436,6 +454,21 @@ The methods or data members declared as private are accessible only within the c
 
 When method,variables,classes,and so on are declared public ,then we can access them from anywhere,no scope restriction.
 
+# Classification of methods 
+Methods may be classified based on:
+- nature of creation
+- return data type
+- method call
+
+![Classification of methods](./Photos/ClassificationOfMethods.jpg)
+
+**Note:**
+
+- Predefined methods are also called Dynamic Link Libraries(DLLs).
+- Recursion method is possible within non static methods.
+- All predefined methods are called static methods
+- Recursion in static methods results in Stack overflow.
+
 ## Difference between Pass by value and Pass by reference
 ### Pass by value
 - Sends a copy of value.
@@ -444,8 +477,5 @@ When method,variables,classes,and so on are declared public ,then we can access 
 ### Pass by refernce
 - Sends the actual value.
 - It works on objects(non-premitive).
-
-## Private Access Modifiers
-The methods or data members declared as private are accessible **only within the class in which they are declared**.In term's of application to classes,**apply only to nested classes and not on top-level classes**.
 
 

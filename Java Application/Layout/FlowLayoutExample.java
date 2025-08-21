@@ -10,7 +10,7 @@ public class FlowLayoutExample {
         frame.setSize(400, 200);
 
         // Set layout to FlowLayout
-        frame.setLayout(new FlowLayout(FlowLayout.LEADING));
+        frame.setLayout(new FlowLayout(FlowLayout.LEFT));
 
         // Add buttons to the frame
         frame.add(new JButton("Button 1"));

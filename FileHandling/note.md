@@ -48,3 +48,34 @@ It must be implemented by the class whose objects you want to persist.The String
 ![Serialization and deseialization](serialize-deserialize-java.png)
 
 The byte stream created in platform independent.so,the object serialized on one platform can be deserialized on a different platform.
+
+**Line**
+```
+private static final long serialVersionUID = 1L;
+```
+Meaning:
+
+
+This line defines a unique identifier for your class during serialization and deserialization.
+
+✅ **Why is it used?**
+
+
+In Java, when you serialize an object (i.e., save it to a file), the JVM records the class structure — including field types, method signatures, etc. When you later deserialize it, the JVM checks if the class definition matches what was used when the object was serialized.
+
+This is where *serialVersionUID** helps.
+
+🧠 **Without serialVersionUID:**
+
+If you make any change to the class later (e.g., add a new field) and try to deserialize an old object, Java may throw:
+```
+InvalidClassException: ...local class incompatible...
+```
+**Because it automatically generates a version ID that no longer matches.**
+
+💡 **With serialVersionUID:**
+You tell Java:
+
+> "Hey, even if I make some small changes to the class, I still want this version to be considered compatible."
+
+**As long as you don't change the class drastically, deserialization will still work.**

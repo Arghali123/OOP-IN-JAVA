@@ -41,8 +41,8 @@ public class StudentRecord {
           System.out.println("Error Writing to file: "+e.getMessage());
         }
 
-        //Read the file Student.txt and display the records of students who are from Bewora
-        System.out.println("Students from Bewora");
+        //Read the file Student.txt and display the records of students who are from Jhapa
+        System.out.println("Students from Jhapa");
         try
         {
           BufferedReader reader=new BufferedReader(new FileReader("Student.txt"));
@@ -50,7 +50,7 @@ public class StudentRecord {
 
           while((line=reader.readLine())!=null)
           {
-            if(line.toLowerCase().contains("address: bewora"))
+            if(line.toLowerCase().contains("address: jhapa"))
             {
                 System.out.println(line);
             }
